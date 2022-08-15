@@ -108,7 +108,7 @@ const generateScreenshot = screenshots => {
     return '';
   } else {
     screenshots.forEach(item => {
-      screenshotList += `![${item.img}](/../main/images/${item.img})`;
+      screenshotList += `![${item.img}](./README-gen/images/${item.img})`;
     });
     return `${screenshotList}`;
   }
