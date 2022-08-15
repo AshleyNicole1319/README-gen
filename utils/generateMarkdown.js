@@ -108,7 +108,7 @@ const generateScreenshot = screenshots => {
     return '';
   } else {
     screenshots.forEach(item => {
-      screenshotList += `![${item.img}](/../main/assets/images/${item.img})`;
+      screenshotList += `![${item.img}](/../main/images/${item.img})`;
     });
     return `${screenshotList}`;
   }
