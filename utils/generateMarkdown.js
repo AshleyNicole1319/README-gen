@@ -18,7 +18,7 @@ const renderLicenseLink = license => {
   if (license == 'Apache 2.0') {
     return `(https://opensource.org/licenses/Apache-2.0)`;
   } else if (license == 'GNU GPL v3') {
-    return `(https://www.gnu.org/licenses/gpl-3.0)`;
+    return `(https://opensource.org/licenses/GPL-3.0)`;
   } else if (license == 'MIT') {
     return `(https://opensource.org/licenses/MIT)`;
   } else if (license == 'No License') {
