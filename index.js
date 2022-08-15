@@ -19,10 +19,10 @@ WHEN I click on the links in the Table of Contents
 THEN I am taken to the corresponding section of the README
 */
 
+// Packages for the application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const markDown = require('./utils/generateMarkdown');
-
 
 // TODO: Create an array of questions for user input
 const questions = () => {
