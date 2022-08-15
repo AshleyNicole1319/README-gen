@@ -1,126 +1,143 @@
-/*
-AS A developer
-I WANT a README generator
-SO THAT I can quickly create a professional README for a new project
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for information about my application repository
-THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-WHEN I enter my project title
-THEN this is displayed as the title of the README
-WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-WHEN I choose a license for my application from a list of options
-THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-WHEN I enter my GitHub username
-THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-WHEN I enter my email address
-THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-WHEN I click on the links in the Table of Contents
-THEN I am taken to the corresponding section of the README
-*/
-
-// Packages for the application
+// packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generatemarkDown = require('./utils/generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
-// TODO: Create an array of questions for user input
-const questions = () => {
-    return inquirer.prompt([
-        {
-            type: 'input',
-            name: 'username',
-            message: "Enter your Github username: ",
-            validate: usernameInput => {
-                if(usernameInput){
-                    return true;
-                } else {
-                    console.log('Please provide a Github username');
-                    return false;
-                }
-            }
-
-        },
-        {
-            type: 'input',
-            name:'title',
-            message: 'What is your project title? (Required) ',
-            validate: nameInput => {
-                if(nameInput){
-                    return true;
-                } else {
-                    console.log('Please provide a name for your project');
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'input',
-            name: 'description',
-            message: 'What is the description of your project (Required),  use the following questions as guide \
-            - What was your motivation? \
-            - Why did you build this specific project? \
-            - What problem does it solve? \
-            - What did you learn? ',
-
-            validate: descriptionInput => {
-                if(descriptionInput){
-                    return true;
-                } else {
-                    console.log('Please provide a description for your project')
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'input',
-            name: 'installation',
-            message: 'Provide installation intructions for your project.'
-        },
-        {
-            type: 'input',
-            name: 'usage',
-            message: 'Provide instructions and examples for use. Include screenshots if needed.'
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: 'Enter your e-mail address. (Required)',
-            validate: emailInput => {
-                if (emailInput) {
-                    return true;
-                } else {
-                    console.log('Please enter your e-mail address.');
-                    return false;
-                }
+// array of questions for user input
+const questions = [
+    {
+        type: 'input',
+        name: 'title',
+        message: 'What is the title of your project?',
+        validate: titleInput => {
+            if (titleInput) {
+                return true;
+            } else {
+                console.log('Please enter a project title!');
+                return false;
             }
         }
-    ])
-}
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: 'Provide a description of your project.',
+        validate: descInput => {
+            if (descInput) {
+                return true;
+            } else {
+                console.log('Please enter a description for your project!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'Provide installation intructions for your project.'
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Provide instructions for use.',
+        validate: usageInput => {
+            if (usageInput) {
+                return true;
+            } else {
+                console.log('Please enter any instructions for use!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'checkbox',
+        name: 'license',
+        message: 'Please select a license to use for your project. (Select 1)',
+        choices: ['Apache 2.0', 'GNU GPL v3', 'MIT', 'No License', 'Skip']
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Enter your GitHub Username. (Required)',
+        validate: githubInput => {
+            if (githubInput) {
+                return true;
+            } else {
+                console.log('Please enter your GitHub username.');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter your e-mail address. (Required)',
+        validate: emailInput => {
+            if (emailInput) {
+                return true;
+            } else {
+                console.log('Please enter your e-mail address.');
+                return false;
+            }
+        }
+    }
+];
 
-// TODO: Create a function to write README file
+// prompt questions to add screenshot(s) into README
+const promptScreenshot = readmeData => {
+	if (!readmeData.screenshots) {
+		readmeData.screenshots = [];
+	}
+	console.log(`***Add a New Screenshot (Optional)***`);
+	return inquirer.prompt([
+		{
+			type: 'input',
+			name: 'img',
+			message: "Provide the image file name. Your screenshot needs to be uploaded in the directory's (Optional)",
+		},
+        {
+            type: 'confirm',
+            name: 'confirmAddScreenshot',
+            message: 'Would you like to add another screenshot?',
+            default: false
+        }
+    ])
+    .then(screenshotData => {
+        readmeData.screenshots.push(screenshotData);
+        if (screenshotData.confirmAddScreenshot) {
+            return promptScreenshot(readmeData);
+        } else {
+            return readmeData;
+        }
+    });
+};
+
+// function to write README file
 const writeToFile = (fileName, data) => {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/README.md', fileName, err => {
+        fs.writeFile('./dis/README.md', fileName, err => {
             if (err) {
                 reject(err);
                 return;
             }
             resolve({
                 ok: true,
-                message: 'Your README.md has been created!'
+                message: 'Your new README.md file has been created!'
             });
         });
     });
 };
 
-// TODO: Create a function to initialize app
+// initialize app
 const init = () => {
     return inquirer.prompt(questions);
 };
 
-// Function call to initialize app
+// function call to initialize app
 init()
+    .then(readmeData => {
+    return promptScreenshot(readmeData);
+    })
     .then(data => {
         console.log(data);
         return generateMarkdown(data);
@@ -129,8 +146,9 @@ init()
         return writeToFile(markdown);
     })
     .then(writeFileResponse => {
-        console.log(writeFileResponse);
+        console.log(writeFileResponse.message);
     })
     .catch(err => {
         console.log(err)
     });
+
