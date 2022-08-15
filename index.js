@@ -53,12 +53,17 @@ const questions = [
         type: 'checkbox',
         name: 'license',
         message: 'Please select a license to use for your project. (Select 1)',
-        choices: ['Apache 2.0', 'GNU GPL v3', 'MIT', 'No License', 'Skip']
+        choices: ['Apache 2.0', 'MIT', 'GNU GPL v3', 'No License', 'Skip']
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'Provide instructions on how to test the application.'
     },
     {
         type: 'input',
         name: 'github',
-        message: 'Enter your GitHub Username. (Required)',
+        message: 'Enter your GitHub Username.',
         validate: githubInput => {
             if (githubInput) {
                 return true;
@@ -71,7 +76,7 @@ const questions = [
     {
         type: 'input',
         name: 'email',
-        message: 'Enter your e-mail address. (Required)',
+        message: 'Enter your e-mail address.',
         validate: emailInput => {
             if (emailInput) {
                 return true;
@@ -93,7 +98,7 @@ const promptScreenshot = readmeData => {
 		{
 			type: 'input',
 			name: 'img',
-			message: "Provide the image file name. Your screenshot needs to be uploaded in the directory's (Optional)",
+			message: "Provide the image file name. Your screenshot needs to be uploaded in the directory's images folder (Optional)",
 		},
         {
             type: 'confirm',
