@@ -13,7 +13,7 @@ When creating a project on GitHub, it's important to have a high-quality README.
 To install this application, you can clone the repository. You will need `node.js` installed, along with `Inquirer.js`, in order to use the application.
 ## Usage
 In the root directory, you will run node index.js in the command line. A set of questions will then be asked. Once you answer all the questions, a README.md will be generated in the dis folder. You can move it to your desired location from there. Remember, the more thorough you are with answering the command line questions, the better the README will be. 
-![Screenshot](../README-gen/images/Screenshot.png)
+![Screenshot.png](../README-gen/images/Screenshot.png)
 
 ## Tests
 To test, enter `npm run test` in the command line.
