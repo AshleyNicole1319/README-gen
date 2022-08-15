@@ -22,7 +22,7 @@ THEN I am taken to the corresponding section of the README
 // Packages for the application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const markDown = require('./utils/generateMarkdown');
+const generatemarkDown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = () => {
@@ -71,7 +71,7 @@ const questions = () => {
                     return false;
                 }
             }
-        }
+        },
         {
             type: 'input',
             name: 'installation',
@@ -99,10 +99,38 @@ const questions = () => {
 }
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeToFile = (fileName, data) => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/README.md', fileName, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: 'Your README.md has been created!'
+            });
+        });
+    });
+};
 
 // TODO: Create a function to initialize app
-function init() {}
+const init = () => {
+    return inquirer.prompt(questions);
+};
 
 // Function call to initialize app
-init();
+init()
+    .then(data => {
+        console.log(data);
+        return generateMarkdown(data);
+    })
+    .then(markdown => {
+        return writeToFile(markdown);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+    })
+    .catch(err => {
+        console.log(err)
+    });
