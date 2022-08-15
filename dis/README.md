@@ -1,7 +1,7 @@
-# README Generator
+# README Generator Test
 
 ## Description
-When creating a project on GitHub, it's important to have a high-quality README. It should include what the application is for, how it's used, how to install it, how to report issues, and how to make contributions. Creating a README can feel tedious at times though. That's where the README Generator comes in! By answering questions in the command line, a README will quickly be generated.
+According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway. Because bees don’t care what humans think is impossible.” SEQ. 75 - “INTRO TO BARRY” INT. BENSON HOUSE - DAY ANGLE ON: Sneakers on the ground. Camera PANS UP to reveal BARRY BENSON’S BEDROOM ANGLE ON: Barry’s hand flipping through different sweaters in his closet. BARRY Yellow black, yellow black, yellow black, yellow black, yellow black, yellow black...oohh, black and yellow... 
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -10,15 +10,15 @@ When creating a project on GitHub, it's important to have a high-quality README.
 - [License](#license)
 - [Questions](#questions)
 ## Installation
-To install this application, you can clone the repository. You will need `node.js` installed, along with `Inquirer.js`, in order to use the application.
+According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway. Because bees don’t care what humans think is impossible.” SEQ. 75 - “INTRO TO BARRY” INT. BENSON HOUSE - DAY ANGLE ON: Sneakers on the ground. Camera PANS UP to reveal BARRY BENSON’S BEDROOM ANGLE ON: Barry’s hand flipping through different sweaters in his closet. BARRY Yellow black, yellow black, yellow black, yellow black, yellow black, yellow black...oohh, black and yellow... 
 ## Usage
-In the root directory, you will run node index.js in the command line. A set of questions will then be asked. Once you answer all the questions, a README.md will be generated in the dis folder. You can move it to your desired location from there. Remember, the more thorough you are with answering the command line questions, the better the README will be. 
-![Screenshot.png](/../README-gen/images/Screenshot.png)
+According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway. Because bees don’t care what humans think is impossible.” SEQ. 75 - “INTRO TO BARRY” INT. BENSON HOUSE - DAY ANGLE ON: Sneakers on the ground. Camera PANS UP to reveal BARRY BENSON’S BEDROOM ANGLE ON: Barry’s hand flipping through different sweaters in his closet. BARRY Yellow black, yellow black, yellow black, yellow black, yellow black, yellow black...oohh, black and yellow... 
+![barrybee](./README-gen/images/barrybee)
 
 ## Tests
-To test, enter `npm run test` in the command line.
+According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway. Because bees don’t care what humans think is impossible.” SEQ. 75 - “INTRO TO BARRY” INT. BENSON HOUSE - DAY ANGLE ON: Sneakers on the ground. Camera PANS UP to reveal BARRY BENSON’S BEDROOM ANGLE ON: Barry’s hand flipping through different sweaters in his closet. BARRY Yellow black, yellow black, yellow black, yellow black, yellow black, yellow black...oohh, black and yellow... 
 ## License
 This application's current license is unavailable at this time.
 ## Questions
-For any questions, please contact me at [a-warford96@comacst.net](mailto:a-warford96@comacst.net) or visit my GitHub: [AshleyNicole1319](https://github.com/AshleyNicole1319).
+For any questions, please contact me at [a-warford96@comcast.net](mailto:a-warford96@comcast.net) or visit my GitHub: [AshleyNicole1319](https://github.com/AshleyNicole1319).
   
