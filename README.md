@@ -15,6 +15,9 @@ To install this application, you can clone the repository. You will need `node.j
 In the root directory, you will run node index.js in the command line. A set of questions will then be asked. Once you answer all the questions, a README.md will be generated in the dis folder. You can move it to your desired location from there. Remember, the more thorough you are with answering the command line questions, the better the README will be. 
 ![Screenshot.png](../README-gen/images/Screenshot.png)
 
+## Video Walkthrough
+https://drive.google.com/file/d/19SIJsfU2z_ayTM9yvzn7xdka_adSveNh/view
+
 ## Tests
 To test, enter `npm run test` in the command line.
 ## License
