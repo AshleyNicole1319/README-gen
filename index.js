@@ -117,7 +117,6 @@ const promptScreenshot = readmeData => {
     });
 };
 
-// function to write README file
 const writeToFile = (fileName, data) => {
     return new Promise((resolve, reject) => {
         fs.writeFile('./dis/README.md', fileName, err => {
@@ -133,12 +132,10 @@ const writeToFile = (fileName, data) => {
     });
 };
 
-// initialize app
 const init = () => {
     return inquirer.prompt(questions);
 };
 
-// function call to initialize app
 init()
     .then(readmeData => {
     return promptScreenshot(readmeData);
