@@ -72,12 +72,29 @@ const questions = () => {
                 }
             }
         }
-        // {
-        //     type: 'input',
-        //     name: 'Installation',
-        //     message: 'Please provide '
-
-        // }
+        {
+            type: 'input',
+            name: 'installation',
+            message: 'Provide installation intructions for your project.'
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'Provide instructions and examples for use. Include screenshots if needed.'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter your e-mail address. (Required)',
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your e-mail address.');
+                    return false;
+                }
+            }
+        }
     ])
 }
 
